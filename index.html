@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی شانسی</title>
+    <style>
+        /* استایل‌های اصلی */
+        body {
+            background-color: #1c1c1c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+        }
+
+        h1 {
+            color: #f9ca24;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 120px);
+            gap: 15px;
+        }
+
+        /* استایل کارت‌ها */
+        .card {
+            width: 120px;
+            height: 120px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .inner-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card.flipped .inner-card {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .front {
+            background: linear-gradient(135deg, #6dd5fa, #2980b9);
+            color: white;
+        }
+
+        .back {
+            background: linear-gradient(135deg, #f9ca24, #e84118);
+            transform: rotateY(180deg);
+            color: white;
+        }
+
+        /* افکت هاور */
+        .card:hover .inner-card {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>بازی شانسی</h1>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+        // لیست جوایز و پوچ
+        const items = ["پوچ", "جایزه", "شانس مجدد", "تست"]; // گزینه‌های اولیه
+        const numCards = 20; // تعداد کارت‌ها
+
+        // توزیع برابر گزینه‌ها
+        function generateItems() {
+            let result = [];
+            const totalItems = items.length; 
+            const itemCount = numCards / totalItems; 
+
+            // ایجاد یک آرایه از گزینه‌ها با توزیع برابر
+            for (let item of items) {
+                for (let i = 0; i < itemCount; i++) {
+                    result.push(item);
+                }
+            }
+
+            // هم‌زدن آرایه برای توزیع تصادفی
+            return shuffleArray(result);
+        }
+
+        // تابع هم‌زدن آرایه
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // ساخت کارت‌ها
+        const grid = document.getElementById('grid');
+        const shuffledItems = generateItems(); // دریافت گزینه‌های هم‌زده شده
+        for (let i = 0; i < numCards; i++) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            const innerCard = document.createElement('div');
+            innerCard.classList.add('inner-card');
+
+            const front = document.createElement('div');
+            front.classList.add('front');
+            front.textContent = i + 1;
+
+            const back = document.createElement('div');
+            back.classList.add('back');
+            back.textContent = shuffledItems[i]; // گزینه هم‌زده شده
+
+            innerCard.appendChild(front);
+            innerCard.appendChild(back);
+            card.appendChild(innerCard);
+            grid.appendChild(card);
+            // افزودن رویداد کلیک برای برگرداندن کارت
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        }
+    </script>
+</body>
+</html>
