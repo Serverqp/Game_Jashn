@@ -3,150 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی شانسی</title>
+    <title>دانلود برنامه ها</title>
     <style>
-        /* استایل‌های اصلی */
         body {
-            background-color: #1c1c1c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-        }
-
-        h1 {
-            color: #f9ca24;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .register-warning {
+            background-color: #ff4444;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
             margin-bottom: 20px;
         }
-
-        .container {
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(5, 120px);
-            gap: 15px;
-        }
-
-        /* استایل کارت‌ها */
-        .card {
-            width: 120px;
-            height: 120px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .inner-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-
-        .card.flipped .inner-card {
-            transform: rotateY(180deg);
-        }
-
-        .front, .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            font-size: 20px;
+        .register-warning a {
+            display: inline-block;
+            background-color: white;
+            color: #ff4444;
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-decoration: none;
             font-weight: bold;
         }
-
-        .front {
-            background: linear-gradient(135deg, #6dd5fa, #2980b9);
-            color: white;
+        .register-warning a:hover {
+            background-color: #ffc1c1;
         }
-
-        .back {
-            background: linear-gradient(135deg, #f9ca24, #e84118);
-            transform: rotateY(180deg);
-            color: white;
+        .app {
+            display: flex;
+            align-items: center;
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
-        /* افکت هاور */
-        .card:hover .inner-card {
-            transform: scale(1.1);
+        .app img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .info {
+            flex: 1;
+            text-align: left;
+        }
+        .download-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>بازی شانسی</h1>
-        <div class="grid" id="grid"></div>
+        <div class="register-warning">ابتدا ثبت نام کنید <br>
+            <a href="www.javdanfard.ir/register">ثبت نام</a>
+        </div>
+        <h1>برنامه‌های پیشنهادی</h1>
+        
+        <div class="app" id="app1">
+            <img src="https://www.farsroid.com/wp-content/uploads/Snake.io-Fun-Snake-.io-Games-1.jpg" alt="اپلیکیشن 1">
+            <div class="info">
+                <h2>Snake.io</h2>
+                <p>هدف شما در بازی این است که کنترل یک مار را به عهده بگیرید و سعی کنید با خوردن غذا رشد کنید و تا جایی که میتوانید بزرگ تر شوید. در کنار غذا خوردن و رشد کردن باید مواظب باشید که با سر به دم خودتان برخورد نکنید چون در این صورت گیم اور می شوید.</p>
+                <a href="https://www.dl.farsroid.com/game/Snake-io-2.1.110-Mod(www.Farsroid.com).apk" class="download-btn">دانلود</a>
+            </div>
+        </div>
+        
+        <div class="app" id="app2">
+            <img src="https://www.farsroid.com/wp-content/uploads/Coin-Master-Logo2.png" alt="اپلیکیشن 2">
+            <div class="info">
+                <h2>Coin Master</h2>
+                <p> شما در نقش یک دزد یا یک وایکینگ قدرتمند ظاهر خواهید شد. برای افزایش و گسترش محدوده تحت نظارت خود باید بتوانید به وسیله کارت ها و نیرو هایی که در اختیارتان قرار دارد به سایر روستاهای اطراف و سایر وایکینگ ها حمله کنید و آن ها را از بین ببرید و غارت نمایید.</p>
+                <a href="https://www.dl.farsroid.com/game/Coin-Master-3.5.2014+64(www.Farsroid.com).apk" class="download-btn">دانلود</a>
+            </div>
+        </div>
+        
+        <div class="app" id="app3">
+            <img src="https://www.farsroid.com/wp-content/uploads/Clash-of-Kings-Android-logo3.png" alt="اپلیکیشن 3">
+            <div class="info">
+                <h2>Clash of Kings 10</h2>
+                <p>شما این امکان را در اختیار دارید که دهکده و امپراطوری خود را با سلیقه ی خودتان بنا کنید، البته بنای دهکده به این آسانی ها هم نیست، چرا که در هنگام کمبود ابزارها، دشمنان مختلف به شما حمله ور می شوند که باید با استراژیت ان آن ها را سرکوب کنید!</p>
+                <a href="https://www.dl.farsroid.com/game/Clash-of-Kings-10.11.0(www.farsroid.com).xapk" class="download-btn">دانلود</a>
+            </div>
+        </div>
+
+        <div class="app" id="app4">
+            <img src="https://www.farsroid.com/wp-content/uploads/Island-War-1.png" alt="اپلیکیشن 4">
+            <div class="info">
+                <h2>Island War 5.7.8</h2>
+                <p>در Island War شما کارتان را با جنگجویان شمشیر زن شروع می کنید و رفته رفته جنگجویانی مثل جنگجویان کماندار را هم به جنگجویان تان اضافه می کنید. بعد از آن می توانید جنگجویان دیگری که در بازی وجود دارند را هم آنلاک کنید و یک سپاه شکست ناپذیر برای خودتان تشکیل دهید. </p>
+                <a href="https://www.dl.farsroid.com/game/Island-War-5.7.8(www.Farsroid.com).xapk" class="download-btn">دانلود</a>
+            </div>
+        </div>
+        
     </div>
-
-    <script>
-        // لیست جوایز و پوچ
-        const items = ["پوچ", "جایزه", "شانس مجدد", "تست"]; // گزینه‌های اولیه
-        const numCards = 20; // تعداد کارت‌ها
-
-        // توزیع برابر گزینه‌ها
-        function generateItems() {
-            let result = [];
-            const totalItems = items.length; 
-            const itemCount = numCards / totalItems; 
-
-            // ایجاد یک آرایه از گزینه‌ها با توزیع برابر
-            for (let item of items) {
-                for (let i = 0; i < itemCount; i++) {
-                    result.push(item);
-                }
-            }
-
-            // هم‌زدن آرایه برای توزیع تصادفی
-            return shuffleArray(result);
-        }
-
-        // تابع هم‌زدن آرایه
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // ساخت کارت‌ها
-        const grid = document.getElementById('grid');
-        const shuffledItems = generateItems(); // دریافت گزینه‌های هم‌زده شده
-        for (let i = 0; i < numCards; i++) {
-            const card = document.createElement('div');
-            card.classList.add('card');
-
-            const innerCard = document.createElement('div');
-            innerCard.classList.add('inner-card');
-
-            const front = document.createElement('div');
-            front.classList.add('front');
-            front.textContent = i + 1;
-
-            const back = document.createElement('div');
-            back.classList.add('back');
-            back.textContent = shuffledItems[i]; // گزینه هم‌زده شده
-
-            innerCard.appendChild(front);
-            innerCard.appendChild(back);
-            card.appendChild(innerCard);
-            grid.appendChild(card);
-            // افزودن رویداد کلیک برای برگرداندن کارت
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-        }
-    </script>
 </body>
 </html>
